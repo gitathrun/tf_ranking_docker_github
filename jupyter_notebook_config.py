@@ -19,7 +19,8 @@ c = c  # pylint:disable=undefined-variable
 c.NotebookApp.ip = '0.0.0.0'  # https://github.com/jupyter/notebook/issues/3946
 c.NotebookApp.port = int(os.getenv('PORT', 8888))
 c.NotebookApp.open_browser = False
-c.NotebookApp.contents_manager_class = "jupytext.TextFileContentsManager"
+# the following setting is for jupyterlab extension
+# c.NotebookApp.contents_manager_class = "jupytext.TextFileContentsManager"
 
 # sets a password if PASSWORD is set in the environment
 if 'PASSWORD' in os.environ:

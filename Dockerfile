@@ -9,15 +9,13 @@
 FROM tensorflow/tensorflow:latest-gpu-py3 
 
 # COPY the pip package into root directory
-COPY ./tf_ranking_pip/tensorflow_ranking*.whl /
+COPY ./tf_ranking_pip/tensorflow_ranking-0.1.0-py2.py3-none-any.whl /
+
+WORKDIR /
 
 RUN pip --no-cache-dir install \
-    jupyterlab \
-    jupytext \
-    jupyter-tensorboard \
-    tensorflow_ranking*.whl
-
-RUN jupyter labextension install jupyterlab_tensorboard
+    jupyter \
+    tensorflow_ranking-0.1.0-py2.py3-none-any.whl
 
 # Set up our notebook config.
 COPY jupyter_notebook_config.py /root/.jupyter/
